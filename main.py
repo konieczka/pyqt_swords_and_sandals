@@ -252,6 +252,7 @@ if __name__ == "__main__":
     ui.player2_sprite.setText("")
     ui.player2_sprite.setPixmap(ui.sprite2)
 
+
     MainWindow.setWindowTitle("Rowu Efforutu")
     MainWindow.show()
 
