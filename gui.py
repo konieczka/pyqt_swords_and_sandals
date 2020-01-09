@@ -8,20 +8,27 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtGui import QPixmap
+from PyQt5.QtGui import QPixmap, QFontDatabase, QFont
 
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
+
+        # Load the custom font
+        self.font_db = QFontDatabase()
+        self.font_id = self.font_db.addApplicationFont("Glasstown.ttf")
+
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
 
         self.round_counter = QtWidgets.QLabel(self.centralwidget)
         self.round_counter.setGeometry(QtCore.QRect(20, 0, 711, 41))
 
-        font = QtGui.QFont()
-        font.setPointSize(14)
+        print(self.font_db.applicationFontFamilies(0))
+
+        font = QtGui.QFont('Glasstown NBP')
+        font.setPointSize(25)
         font.setBold(True)
         font.setWeight(75)
 
@@ -38,13 +45,12 @@ class Ui_MainWindow(object):
         self.player1_label = QtWidgets.QLabel(self.centralwidget)
         self.player1_label.setGeometry(QtCore.QRect(20, 440, 111, 21))
 
-        font.setPointSize(12)
+        font.setPointSize(16)
 
         self.player1_label.setFont(font)
         self.player1_label.setObjectName("player1_label")
         self.player2_label = QtWidgets.QLabel(self.centralwidget)
         self.player2_label.setGeometry(QtCore.QRect(590, 440, 111, 21))
-
 
         self.player2_label.setFont(font)
         self.player2_label.setObjectName("player2_label")
@@ -77,7 +83,7 @@ class Ui_MainWindow(object):
         self.player1_stamina = QtWidgets.QLabel(self.centralwidget)
         self.player1_stamina.setGeometry(QtCore.QRect(20, 495, 161, 41))
 
-        font.setPointSize(10)
+        font.setPointSize(15)
 
         self.player1_stamina.setFont(font)
         self.player1_stamina.setObjectName("player1_stamina")
@@ -85,7 +91,6 @@ class Ui_MainWindow(object):
         self.player2_stamina = QtWidgets.QLabel(self.centralwidget)
         self.player2_stamina.setGeometry(QtCore.QRect(390, 500, 161, 31))
 
-        font.setPointSize(10)
 
         self.player2_stamina.setFont(font)
         self.player2_stamina.setObjectName("player2_stamina")
@@ -117,32 +122,31 @@ class Ui_MainWindow(object):
         self.player_indicator = QtWidgets.QLabel(self.centralwidget)
         self.player_indicator.setGeometry(QtCore.QRect(30, 10, 161, 31))
 
-        font.setPointSize(9)
+        font.setPointSize(14)
 
         self.player_indicator.setFont(font)
         self.player_indicator.setObjectName("player_indicator")
+        self.player_indicator.setStyleSheet("color: red;")
 
         self.game_actions_informer = QtWidgets.QLabel(self.centralwidget)
         self.game_actions_informer.setGeometry(QtCore.QRect(24, 705, 671, 71))
         self.game_actions_informer.setAlignment(QtCore.Qt.AlignLeading | QtCore.Qt.AlignLeft | QtCore.Qt.AlignTop)
         self.game_actions_informer.setObjectName("game_actions_informer")
 
-        self.sprite_background = QPixmap('background.png')
+        self.sprite_background = QPixmap('images/background.png')
         self.background_image = QtWidgets.QLabel(self.graphic_frame)
         self.background_image.setGeometry(QtCore.QRect(4, 5, 701, 381))
         self.background_image.setObjectName("background_image")
 
-        self.sprite1 = QPixmap('cloud.png')
+        self.sprite1 = QPixmap('images/cloud.png')
         self.player1_sprite = QtWidgets.QLabel(self.graphic_frame)
         self.player1_sprite.setGeometry(QtCore.QRect(70, 160, 191, 221))
         self.player1_sprite.setObjectName("player1_sprite")
 
-        self.sprite2 = QPixmap('sephiroth.png')
+        self.sprite2 = QPixmap('images/sephiroth.png')
         self.player2_sprite = QtWidgets.QLabel(self.graphic_frame)
         self.player2_sprite.setGeometry(QtCore.QRect(430, 160, 191, 221))
         self.player2_sprite.setObjectName("player2_sprite")
-        self.player1_label = QtWidgets.QLabel(self.centralwidget)
-        self.player1_label.setGeometry(QtCore.QRect(20, 440, 111, 21))
 
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)

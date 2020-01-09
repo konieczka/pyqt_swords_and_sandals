@@ -222,6 +222,7 @@ class GameData:
         self.ui.game_actions_informer.setText((self.victory_messages[randint(0, 2)] % (self.current_player, self.round_number)))
 
 
+# Main function
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
@@ -245,11 +246,8 @@ if __name__ == "__main__":
     ui.taunt_button.clicked.connect(game_data.taunt)
 
     # Setup graphics
-    ui.background_image.setText("")
     ui.background_image.setPixmap(ui.sprite_background)
-    ui.player1_sprite.setText("")
     ui.player1_sprite.setPixmap(ui.sprite1)
-    ui.player2_sprite.setText("")
     ui.player2_sprite.setPixmap(ui.sprite2)
 
 
