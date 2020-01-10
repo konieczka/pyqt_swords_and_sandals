@@ -167,9 +167,9 @@ class GameData:
 
     def display_attack_icon(self, heavy):
         if self.current_player == 1:
-            self.ui.player1_action_icon.setPixmap(self.ui.attack1_icons[heavy])
-        else:
             self.ui.player2_action_icon.setPixmap(self.ui.attack2_icons[heavy])
+        else:
+            self.ui.player1_action_icon.setPixmap(self.ui.attack1_icons[heavy])
 
 
     def display_action_icon(self, action_id):
