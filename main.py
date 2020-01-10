@@ -143,10 +143,26 @@ class GameData:
         self.next_round()
 
 
+    def display_attack_icon(self, heavy):
+        if self.current_player == 1:
+            self.ui.player1_action_icon.setPixmap(self.ui.attack1_icons[heavy])
+        else:
+            self.ui.player2_action_icon.setPixmap(self.ui.attack2_icons[heavy])
+
+
+    def display_action_icon(self, action_id):
+        # 0 for block, 1 for dodge, 2 for taunt, 3 for sleep
+        if self.current_player == 1:
+            self.ui.player1_action_icon.setPixmap(self.ui.action_icons[action_id])
+        else:
+            self.ui.player2_action_icon.setPixmap(self.ui.action_icons[action_id])
+
+
     def light_attack(self):
         # Calculate and save dealt damage if the attacking player has enough stamina to perform the attack
         if self.players_stamina[self.current_player - 1] - self.stamina_cost_light >= 0:
             self.decrease_attacked_player_health(self.stamina_cost_light, 5, 20, False)
+            self.display_attack_icon(0)
         # If player doesn't have enough stamina, action will not be performed
         else:
             pass
@@ -156,6 +172,7 @@ class GameData:
         # Calculate and save dealt damage if the attacking player has enough stamina to perform the attack
         if self.players_stamina[self.current_player - 1] - self.stamina_cost_high >= 0:
             self.decrease_attacked_player_health(self.stamina_cost_high, 25, 40, True)
+            self.display_attack_icon(1)
         # If player doesn't have enough stamina, action will not be performed
         else:
             pass
@@ -168,6 +185,8 @@ class GameData:
             self.players_stamina[self.current_player - 1] = self.players_stamina[self.current_player - 1] - self.stamina_cost_block
 
             self.game_actions_data.append(self.block_messages[randint(0, 2)] % self.current_player)
+
+            self.display_action_icon(0)
             self.next_round()
         # If player doesn't have enough stamina, action will not be performed
         else:
@@ -181,6 +200,8 @@ class GameData:
             self.players_stamina[self.current_player - 1] = self.players_stamina[self.current_player - 1] - self.stamina_cost_dodge
 
             self.game_actions_data.append(self.dodge_messages[randint(0, 2)] % self.current_player)
+
+            self.display_action_icon(1)
             self.next_round()
         # If player doesn't have enough stamina, action will not be performed
         else:
@@ -194,7 +215,9 @@ class GameData:
             self.players_regen_modifiers[self.current_player % 2] = 0
 
         self.players_cooldowns[self.current_player % 2] = 4
-        self.game_actions_data.append(self.taunt_messages[randint(0, 2)] % (self.current_player % 2, self.players_cooldowns[self.current_player % 2]))
+        self.game_actions_data.append(self.taunt_messages[randint(0, 2)] % ((self.current_player % 2) + 1, self.players_cooldowns[self.current_player % 2]))
+
+        self.display_action_icon(2)
         self.next_round()
 
 
@@ -206,7 +229,9 @@ class GameData:
             self.players_regen_modifiers[self.current_player - 1] = 2
 
         self.players_cooldowns[self.current_player - 1] = 4
-        self.game_actions_data.append(self.sleep_messages[randint(0, 2)] % (self.current_player - 1, self.players_cooldowns[self.current_player - 1]))
+        self.game_actions_data.append(self.sleep_messages[randint(0, 2)] % (self.current_player, self.players_cooldowns[self.current_player - 1]))
+
+        self.display_action_icon(3)
         self.next_round()
 
 

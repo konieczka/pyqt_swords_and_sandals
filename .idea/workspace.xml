@@ -3,11 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d1b351ce-27de-48ad-ace4-b95bf50b7615" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cloud.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/earlyaccess_display.ui" beforeDir="false" afterPath="$PROJECT_DIR$/earlyaccess_display.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gui.py" beforeDir="false" afterPath="$PROJECT_DIR$/gui.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sephiroth.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,22 +128,22 @@
       <screen x="0" y="0" width="1536" height="864" />
     </state>
     <state x="549" y="188" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1578608026461" />
-    <state width="1515" height="158" key="GridCell.Tab.0.bottom" timestamp="1578610027151">
+    <state width="1515" height="158" key="GridCell.Tab.0.bottom" timestamp="1578614487895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1515" height="158" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1578610027151" />
-    <state width="1515" height="158" key="GridCell.Tab.0.center" timestamp="1578610027151">
+    <state width="1515" height="158" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1578614487895" />
+    <state width="1515" height="158" key="GridCell.Tab.0.center" timestamp="1578614487895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1515" height="158" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1578610027151" />
-    <state width="1515" height="158" key="GridCell.Tab.0.left" timestamp="1578610027151">
+    <state width="1515" height="158" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1578614487895" />
+    <state width="1515" height="158" key="GridCell.Tab.0.left" timestamp="1578614487895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1515" height="158" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1578610027151" />
-    <state width="1515" height="158" key="GridCell.Tab.0.right" timestamp="1578610027151">
+    <state width="1515" height="158" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1578614487895" />
+    <state width="1515" height="158" key="GridCell.Tab.0.right" timestamp="1578614487895">
       <screen x="0" y="0" width="1536" height="864" />
     </state>
-    <state width="1515" height="158" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1578610027151" />
+    <state width="1515" height="158" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1578614487895" />
     <state x="550" y="144" key="RollbackChangesDialog" timestamp="1578608014144">
       <screen x="0" y="0" width="1536" height="864" />
     </state>

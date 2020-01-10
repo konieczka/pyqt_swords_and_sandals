@@ -25,8 +25,6 @@ class Ui_MainWindow(object):
         self.round_counter = QtWidgets.QLabel(self.centralwidget)
         self.round_counter.setGeometry(QtCore.QRect(20, 0, 711, 41))
 
-        print(self.font_db.applicationFontFamilies(0))
-
         font = QtGui.QFont('Glasstown NBP')
         font.setPointSize(25)
         font.setBold(True)
@@ -148,6 +146,23 @@ class Ui_MainWindow(object):
         self.player2_sprite.setGeometry(QtCore.QRect(430, 160, 191, 221))
         self.player2_sprite.setObjectName("player2_sprite")
 
+        self.player1_action_icon = QtWidgets.QLabel(self.graphic_frame)
+        self.player1_action_icon.setGeometry(QtCore.QRect(180, 180, 64, 64))
+        self.player1_action_icon.setObjectName("player1_action_icon")
+
+        self.player2_action_icon = QtWidgets.QLabel(self.graphic_frame)
+        self.player2_action_icon.setGeometry(QtCore.QRect(400, 180, 64, 64))
+        self.player2_action_icon.setObjectName("player2_action_icon")
+
+        self.restart_button = QtWidgets.QPushButton(self.centralwidget)
+        self.restart_button.setGeometry(QtCore.QRect(620, 10, 93, 28))
+        self.restart_button.setObjectName("restart_button")
+
+        self.attack1_icons = [QPixmap('images/light1.png'), QPixmap('images/heavy1.png')]
+        self.attack2_icons = [QPixmap('images/light2.png'), QPixmap('images/heavy2.png')]
+        self.action_icons = [QPixmap('images/block.png'), QPixmap('images/dodge.png'),
+                             QPixmap('images/taunt.png'), QPixmap('images/sleep.png')]
+
         MainWindow.setCentralWidget(self.centralwidget)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
@@ -171,8 +186,11 @@ class Ui_MainWindow(object):
         self.taunt_button.setText(_translate("MainWindow", "Taunt"))
         self.sleep_button.setText(_translate("MainWindow", "Sleep"))
         self.player_indicator.setText(_translate("MainWindow", "TextLabel"))
-        self.game_actions_informer.setText(_translate("MainWindow", "TextLabel"))
-        self.background_image.setText(_translate("MainWindow", "TextLabel"))
-        self.player1_sprite.setText(_translate("MainWindow", "TextLabel"))
-        self.player2_sprite.setText(_translate("MainWindow", "TextLabel"))
+        self.game_actions_informer.setText(_translate("MainWindow", ""))
+        self.background_image.setText(_translate("MainWindow", ""))
+        self.player1_sprite.setText(_translate("MainWindow", ""))
+        self.player2_sprite.setText(_translate("MainWindow", ""))
+        self.player1_action_icon.setText(_translate("MainWindow", ""))
+        self.player2_action_icon.setText(_translate("MainWindow", ""))
+        self.restart_button.setText(_translate("MainWindow", "Restart"))
 
