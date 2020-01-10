@@ -3,9 +3,19 @@ from PyQt5 import QtWidgets
 from gui import Ui_MainWindow
 from random import randint
 
+def start_game(game_data, ui):
+    ui.light_attack_button.clicked.connect(game_data.light_attack)
+    ui.heavy_attack_button.clicked.connect(game_data.heavy_attack)
+    ui.block_button.clicked.connect(game_data.block)
+    ui.dodge_button.clicked.connect(game_data.dodge)
+    ui.sleep_button.clicked.connect(game_data.sleep)
+    ui.taunt_button.clicked.connect(game_data.taunt)
+
+
 class GameData:
-    def __init__(self, ui_reference):
+    def init_game_state(self):
         self.round_number = 1
+
         # First player is being chosen by dice roll
         self.current_player = randint(1, 2)
 
@@ -20,6 +30,12 @@ class GameData:
 
         self.players_cooldowns = [0, 0]
 
+        self.game_actions_data = ["The battle has started!",
+                                  "Player %d has the first move!" % self.current_player]
+
+
+    def __init__(self, ui_reference):
+        self.init_game_state()
 
         self.stamina_cost_light = 15
         self.stamina_cost_high = 35
@@ -27,9 +43,6 @@ class GameData:
         self.stamina_cost_dodge = 45
 
         self.ui = ui_reference
-
-        self.game_actions_data = ["The battle has started!",
-                                  "Player %d has the first move!" % self.current_player]
 
         self.taunt_messages = ["Oof! That fiery insult will continue to hurt player's %d feelings for %d turns!",
                                "Damn! Player's %d butthurt will last for %d turns!",
@@ -59,6 +72,15 @@ class GameData:
                                 "Player %d achieves victory as he beheads his opponent and dances on his corpse after %d round of fighting!",
                                 "Player %d brutally desecrates his opponent's corpse after %d of bloody ravage!"]
 
+
+    def restart(self):
+        self.game_won()
+        self.init_game_state()
+        start_game(self, self.ui)
+
+        self.ui.player1_action_icon.clear()
+        self.ui.player2_action_icon.clear()
+        self.update_ui()
 
 
     def update_ui(self):
@@ -263,19 +285,15 @@ if __name__ == "__main__":
     game_data.update_ui()
 
     # Connect GUI buttons to their receiver methods in GameData class
-    ui.light_attack_button.clicked.connect(game_data.light_attack)
-    ui.heavy_attack_button.clicked.connect(game_data.heavy_attack)
-    ui.block_button.clicked.connect(game_data.block)
-    ui.dodge_button.clicked.connect(game_data.dodge)
-    ui.sleep_button.clicked.connect(game_data.sleep)
-    ui.taunt_button.clicked.connect(game_data.taunt)
+    ui.restart_button.clicked.connect(game_data.restart)
+    start_game(game_data, ui)
 
     # Setup graphics
     ui.background_image.setPixmap(ui.sprite_background)
     ui.player1_sprite.setPixmap(ui.sprite1)
     ui.player2_sprite.setPixmap(ui.sprite2)
 
-
+    # Set main window title
     MainWindow.setWindowTitle("Rowu Efforutu")
     MainWindow.show()
 
